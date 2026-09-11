@@ -42,7 +42,6 @@
     transition: background 0.4s ease, color 0.4s ease;
   }
 
-  /* Navbar */
   nav {
     position: fixed;
     top: 0;
@@ -64,6 +63,7 @@
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    white-space: nowrap;
   }
 
   .nav-right {
@@ -117,7 +117,6 @@
     transform: translateY(-2px);
   }
 
-  /* Hero */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -143,7 +142,7 @@
   }
 
   .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     line-height: 1.2;
     margin-bottom: 20px;
   }
@@ -240,7 +239,6 @@
     50% { transform: translateY(-20px); }
   }
 
-  /* Section */
   section {
     padding: 100px 8%;
   }
@@ -257,7 +255,6 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* About */
   .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -393,6 +390,13 @@
   .skill-card h3 {
     font-size: 1rem;
     font-weight: 600;
+  }
+
+  .skill-card small {
+    display: block;
+    color: var(--gray);
+    font-size: 0.75rem;
+    margin-top: 6px;
   }
 
   /* Projects */
@@ -541,7 +545,6 @@
     border: 1px solid rgba(239,68,68,0.3);
   }
 
-  /* Social Links (Text Version) */
   .social-links {
     display: flex;
     justify-content: center;
@@ -571,7 +574,6 @@
     border-color: transparent;
   }
 
-  /* Footer */
   footer {
     text-align: center;
     padding: 30px;
@@ -580,7 +582,6 @@
     font-size: 0.9rem;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .hero-content {
       grid-template-columns: 1fr;
@@ -603,6 +604,10 @@
 
     .nav-links {
       display: none;
+    }
+
+    .logo {
+      font-size: 1rem;
     }
 
     .section-title {
@@ -636,15 +641,15 @@
 
   <!-- Navbar -->
   <nav>
-    <div class="logo">Agil Nurussofa</div>
+    <div class="logo">Welcome to My Portofolio</div>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#home" data-i18n="nav_home">Home</a></li>
         <li><a href="#about" data-i18n="nav_about">About</a></li>
-        <li><a href="#experience" data-i18n="nav_exp">Experience</a></li>
-        <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
-        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
-        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        <li><a href="#experience" data-i18n="nav_exp">Pengalaman</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skill</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Project</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Kontak</a></li>
       </ul>
       <div class="controls">
         <button class="icon-btn" id="themeToggle" title="Toggle theme">Dark</button>
@@ -659,11 +664,11 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-text">
-        <h1><span data-i18n="hero_greet">Hai, gua</span> <span class="gradient-text">Agil Nurussofa</span></h1>
-        <p data-i18n="hero_desc">Seorang Web Developer yang passionate bikin website keren dan fungsional. Suka ngoding, belajar hal baru, dan ngopi tentunya.</p>
+        <h1><span data-i18n="hero_greet">Hai, saya</span> <span class="gradient-text">Agil Nurussofa</span></h1>
+        <p data-i18n="hero_desc">Siswa SMK Jurusan Perhotelan yang juga suka ngoding. Lagi belajar bikin website sambil mendalami dunia hospitality. Suka tantangan baru dan ngopi tentunya.</p>
         <div class="btn-group">
           <a href="#projects" class="btn btn-primary" data-i18n="hero_btn1">Lihat Project</a>
-          <a href="#contact" class="btn btn-outline" data-i18n="hero_btn2">Hubungi Gua</a>
+          <a href="#contact" class="btn btn-outline" data-i18n="hero_btn2">Hubungi saya</a>
         </div>
       </div>
       <div class="hero-image">
@@ -678,38 +683,38 @@
   <section id="about">
     <h2 class="section-title"><span data-i18n="about_title1">Tentang</span> <span data-i18n="about_title2">Saya</span></h2>
     <div class="about-content">
-      <p data-i18n="about_desc">Gua adalah developer yang berbasis di Indonesia, fokus di bidang web development. Udah 3+ tahun berkecimpung di dunia programming, mulai dari bikin landing page simpel sampai aplikasi web kompleks. Gua percaya kalau kode yang bagus itu bukan cuma jalan, tapi juga rapi dan gampang dimaintain.</p>
+      <p data-i18n="about_desc">Saya adalah siswa SMK jurusan Perhotelan yang punya ketertarikan besar di dunia teknologi, khususnya web development. Sambil belajar ilmu hospitality — mulai dari front office, housekeeping, sampai food & beverage — saya juga ngulik coding buat bikin website. Buat saya, dua dunia ini bisa jalan bareng: pelayanan yang baik dan teknologi yang tepat bakal bikin pengalaman tamu makin berkesan.</p>
     </div>
   </section>
 
   <!-- Experience / Timeline -->
   <section id="experience">
-    <h2 class="section-title"><span data-i18n="exp_title1">Pengalaman</span> <span data-i18n="exp_title2">Kerja</span></h2>
+    <h2 class="section-title"><span data-i18n="exp_title1">Pengalaman</span> <span data-i18n="exp_title2">& Pendidikan</span></h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-card">
           <div class="timeline-date">2024 — <span data-i18n="now">Sekarang</span></div>
-          <h3 data-i18n="exp1_role">Freelance Web Developer</h3>
-          <h4 data-i18n="exp1_company">Remote / Self-employed</h4>
-          <p data-i18n="exp1_desc">Mengerjakan berbagai project web development untuk klien lokal dan internasional, mulai dari landing page, company profile, hingga aplikasi web custom.</p>
+          <h3 data-i18n="exp1_role">Siswa SMK Jurusan Perhotelan</h3>
+          <h4 data-i18n="exp1_company">SMK Perhotelan</h4>
+          <p data-i18n="exp1_desc">Belajar ilmu hospitality: front office, housekeeping, food & beverage service, serta komunikasi dengan tamu. Aktif di kegiatan praktik dan pelayanan sekolah.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-card">
-          <div class="timeline-date">2023 — 2024</div>
-          <h3 data-i18n="exp2_role">Frontend Developer</h3>
-          <h4 data-i18n="exp2_company">PT Teknologi Nusantara</h4>
-          <p data-i18n="exp2_desc">Develop dan maintain tampilan web aplikasi internal perusahaan menggunakan React dan Tailwind CSS. Kolaborasi dengan tim UI/UX dan backend.</p>
+          <div class="timeline-date">2024</div>
+          <h3 data-i18n="exp2_role">Praktik Kerja Lapangan (PKL)</h3>
+          <h4 data-i18n="exp2_company">Hotel / Restoran</h4>
+          <p data-i18n="exp2_desc">Menjalani PKL di industri perhotelan. Belajar langsung bagaimana melayani tamu, mengelola operasional, dan bekerja dalam tim di lingkungan profesional.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-card">
-          <div class="timeline-date">2022 — 2023</div>
-          <h3 data-i18n="exp3_role">Junior Web Developer</h3>
-          <h4 data-i18n="exp3_company">Startup Digital Kreatif</h4>
-          <p data-i18n="exp3_desc">Belajar dan mengerjakan project web dari nol, mulai dari slicing design, integrasi API, sampai deploy ke production.</p>
+          <div class="timeline-date">2023 — <span data-i18n="now">Sekarang</span></div>
+          <h3 data-i18n="exp3_role">Belajar Web Development (Self-taught)</h3>
+          <h4 data-i18n="exp3_company">Otodidak / Online Course</h4>
+          <p data-i18n="exp3_desc">Belajar coding secara otodidak di luar jam sekolah. Fokus di HTML, CSS, dan JavaScript untuk bikin website sederhana sampai portofolio pribadi.</p>
         </div>
       </div>
     </div>
@@ -719,61 +724,61 @@
   <section id="skills">
     <h2 class="section-title"><span data-i18n="skills_title1">Skill</span> <span data-i18n="skills_title2">Saya</span></h2>
     <div class="skills-grid">
-      <div class="skill-card"><h3>React</h3></div>
-      <div class="skill-card"><h3>JavaScript</h3></div>
-      <div class="skill-card"><h3>CSS / Tailwind</h3></div>
-      <div class="skill-card"><h3>Node.js</h3></div>
-      <div class="skill-card"><h3>PHP / Laravel</h3></div>
-      <div class="skill-card"><h3>MySQL</h3></div>
-      <div class="skill-card"><h3>Git</h3></div>
-      <div class="skill-card"><h3>Responsive Design</h3></div>
+      <div class="skill-card"><h3>Front Office</h3><small>Hospitality</small></div>
+      <div class="skill-card"><h3>Housekeeping</h3><small>Hospitality</small></div>
+      <div class="skill-card"><h3>Food & Beverage</h3><small>Hospitality</small></div>
+      <div class="skill-card"><h3>Customer Service</h3><small>Hospitality</small></div>
+      <div class="skill-card"><h3>HTML & CSS</h3><small>Coding</small></div>
+      <div class="skill-card"><h3>JavaScript</h3><small>Coding</small></div>
+      <div class="skill-card"><h3>UI Design</h3><small>Coding</small></div>
+      <div class="skill-card"><h3>Microsoft Office</h3><small>Umum</small></div>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects">
-    <h2 class="section-title"><span data-i18n="proj_title1">Project</span> <span data-i18n="proj_title2">Terbaru</span></h2>
+    <h2 class="section-title"><span data-i18n="proj_title1">Project</span> <span data-i18n="proj_title2">& Kegiatan</span></h2>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-image">E-Commerce</div>
+        <div class="project-image">Web Portofolio</div>
         <div class="project-info">
-          <h3>E-Commerce App</h3>
-          <p data-i18n="proj1_desc">Aplikasi toko online dengan fitur cart, checkout, dan payment gateway.</p>
+          <h3>Website Portofolio Pribadi</h3>
+          <p data-i18n="proj1_desc">Website portofolio pribadi yang menampilkan profil, skill, dan pengalaman saya. Dibuat dari nol pakai HTML, CSS, dan JavaScript.</p>
           <div class="project-tags">
-            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-image">Dashboard</div>
+        <div class="project-image">Landing Page</div>
         <div class="project-info">
-          <h3>Dashboard Analytics</h3>
-          <p data-i18n="proj2_desc">Dashboard interaktif untuk visualisasi data dengan chart real-time.</p>
+          <h3>Landing Page Hotel</h3>
+          <p data-i18n="proj2_desc">Design landing page sederhana untuk hotel dengan info kamar, fasilitas, dan form reservasi.</p>
           <div class="project-tags">
-            <span class="tag">Vue.js</span><span class="tag">Chart.js</span><span class="tag">API</span>
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Design</span>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-image">Blog</div>
+        <div class="project-image">PKL</div>
         <div class="project-info">
-          <h3>Blog Platform</h3>
-          <p data-i18n="proj3_desc">Platform blogging dengan markdown editor dan sistem komentar.</p>
+          <h3>Praktik Kerja Lapangan</h3>
+          <p data-i18n="proj3_desc">Pengalaman PKL di industri perhotelan. Melayani tamu, membantu operasional, dan belajar kerja dalam tim profesional.</p>
           <div class="project-tags">
-            <span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Hospitality</span><span class="tag">Service</span><span class="tag">Teamwork</span>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-image">Mini Game</div>
+        <div class="project-image">Event Sekolah</div>
         <div class="project-info">
-          <h3>Mini Game</h3>
-          <p data-i18n="proj4_desc">Game browser sederhana dengan HTML5 Canvas dan JavaScript vanilla.</p>
+          <h3>Event & Kegiatan Sekolah</h3>
+          <p data-i18n="proj4_desc">Terlibat dalam berbagai kegiatan dan event sekolah, mulai dari pelayanan tamu sampai jadi panitia acara.</p>
           <div class="project-tags">
-            <span class="tag">JavaScript</span><span class="tag">Canvas</span>
+            <span class="tag">Event</span><span class="tag">Public Relation</span>
           </div>
         </div>
       </div>
@@ -784,7 +789,7 @@
   <section id="contact">
     <h2 class="section-title"><span data-i18n="contact_title1">Hubungi</span> <span data-i18n="contact_title2">Saya</span></h2>
     <div class="contact-content">
-      <p data-i18n="contact_desc">Punya project menarik atau mau kolaborasi? Jangan ragu buat reach out ya! Gua bakal respon secepatnya.</p>
+      <p data-i18n="contact_desc">Mau ngobrol soal perhotelan, coding, atau kolaborasi project? Jangan ragu buat reach out ya! Saya bakal respon secepatnya.</p>
 
       <form class="contact-form" id="contactForm">
         <div class="form-group">
@@ -793,7 +798,7 @@
         </div>
         <div class="form-group">
           <label for="email" data-i18n="form_email">Email</label>
-          <input type="email" id="email" name="email" required data-i18n-ph="form_email_ph" placeholder="email@contoh.com">
+          <input type="email" id="email" name="email" required data-i18n-ph="form_email_ph" placeholder="email@gmail.com">
         </div>
         <div class="form-group">
           <label for="message" data-i18n="form_message">Pesan</label>
@@ -806,7 +811,7 @@
       <div class="social-links">
         <a href="mailto:agilnurus2008@gmail.com" class="social-link">Gmail</a>
         <a href="https://github.com/agilnrssf" class="social-link">GitHub</a>
-        <a href="https://linkedin.com/in/username" class="social-link">LinkedIn</a>
+        <a href="https://t.me/GIL_XZ" class="social-link">Telegram</a>
         <a href="https://instagram.com/agil_ajaa4" class="social-link">Instagram</a>
         <a href="https://wa.me/6281574811853" class="social-link">WhatsApp</a>
       </div>
@@ -827,45 +832,45 @@
         nav_skills: "Skill",
         nav_projects: "Project",
         nav_contact: "Kontak",
-        hero_greet: "Hai, gua",
-        hero_desc: "Seorang Web Developer yang passionate bikin website keren dan fungsional. Suka ngoding, belajar hal baru, dan ngopi tentunya.",
+        hero_greet: "Hai, saya",
+        hero_desc: "Siswa SMK Jurusan Perhotelan yang juga suka ngoding. Lagi belajar bikin website sambil mendalami dunia hospitality. Suka tantangan baru dan ngopi tentunya.",
         hero_btn1: "Lihat Project",
-        hero_btn2: "Hubungi Gua",
+        hero_btn2: "Hubungi saya",
         about_title1: "Tentang",
         about_title2: "Saya",
-        about_desc: "Gua adalah developer yang berbasis di Indonesia, fokus di bidang web development. Udah 3+ tahun berkecimpung di dunia programming, mulai dari bikin landing page simpel sampai aplikasi web kompleks. Gua percaya kalau kode yang bagus itu bukan cuma jalan, tapi juga rapi dan gampang dimaintain.",
+        about_desc: "Saya adalah siswa SMK jurusan Perhotelan yang punya ketertarikan besar di dunia teknologi, khususnya web development. Sambil belajar ilmu hospitality — mulai dari front office, housekeeping, sampai food & beverage — saya juga ngulik coding buat bikin website. Buat saya, dua dunia ini bisa jalan bareng: pelayanan yang baik dan teknologi yang tepat bakal bikin pengalaman tamu makin berkesan.",
         exp_title1: "Pengalaman",
-        exp_title2: "Kerja",
+        exp_title2: "& Pendidikan",
         now: "Sekarang",
-        exp1_role: "Freelance Web Developer",
-        exp1_company: "Remote / Self-employed",
-        exp1_desc: "Mengerjakan berbagai project web development untuk klien lokal dan internasional, mulai dari landing page, company profile, hingga aplikasi web custom.",
-        exp2_role: "Frontend Developer",
-        exp2_company: "PT Teknologi Nusantara",
-        exp2_desc: "Develop dan maintain tampilan web aplikasi internal perusahaan menggunakan React dan Tailwind CSS. Kolaborasi dengan tim UI/UX dan backend.",
-        exp3_role: "Junior Web Developer",
-        exp3_company: "Startup Digital Kreatif",
-        exp3_desc: "Belajar dan mengerjakan project web dari nol, mulai dari slicing design, integrasi API, sampai deploy ke production.",
+        exp1_role: "Siswa SMK Jurusan Perhotelan",
+        exp1_company: "SMK Perhotelan",
+        exp1_desc: "Belajar ilmu hospitality: front office, housekeeping, food & beverage service, serta komunikasi dengan tamu. Aktif di kegiatan praktik dan pelayanan sekolah.",
+        exp2_role: "Praktik Kerja Lapangan (PKL)",
+        exp2_company: "Hotel / Restoran",
+        exp2_desc: "Menjalani PKL di industri perhotelan. Belajar langsung bagaimana melayani tamu, mengelola operasional, dan bekerja dalam tim di lingkungan profesional.",
+        exp3_role: "Belajar Web Development (Self-taught)",
+        exp3_company: "Otodidak / Online Course",
+        exp3_desc: "Belajar coding secara otodidak di luar jam sekolah. Fokus di HTML, CSS, dan JavaScript untuk bikin website sederhana sampai portofolio pribadi.",
         skills_title1: "Skill",
         skills_title2: "Saya",
         proj_title1: "Project",
-        proj_title2: "Terbaru",
-        proj1_desc: "Aplikasi toko online dengan fitur cart, checkout, dan payment gateway.",
-        proj2_desc: "Dashboard interaktif untuk visualisasi data dengan chart real-time.",
-        proj3_desc: "Platform blogging dengan markdown editor dan sistem komentar.",
-        proj4_desc: "Game browser sederhana dengan HTML5 Canvas dan JavaScript vanilla.",
+        proj_title2: "& Kegiatan",
+        proj1_desc: "Website portofolio pribadi yang menampilkan profil, skill, dan pengalaman saya. Dibuat dari nol pakai HTML, CSS, dan JavaScript.",
+        proj2_desc: "Design landing page sederhana untuk hotel dengan info kamar, fasilitas, dan form reservasi.",
+        proj3_desc: "Pengalaman PKL di industri perhotelan. Melayani tamu, membantu operasional, dan belajar kerja dalam tim profesional.",
+        proj4_desc: "Terlibat dalam berbagai kegiatan dan event sekolah, mulai dari pelayanan tamu sampai jadi panitia acara.",
         contact_title1: "Hubungi",
         contact_title2: "Saya",
-        contact_desc: "Punya project menarik atau mau kolaborasi? Jangan ragu buat reach out ya! Gua bakal respon secepatnya.",
+        contact_desc: "Mau ngobrol soal perhotelan, coding, atau kolaborasi project? Jangan ragu buat reach out ya! Saya bakal respon secepatnya.",
         form_name: "Nama",
         form_name_ph: "Nama kamu...",
         form_email: "Email",
-        form_email_ph: "email@contoh.com",
+        form_email_ph: "email@gmail.com",
         form_message: "Pesan",
         form_message_ph: "Tulis pesan kamu di sini...",
         form_submit: "Kirim Pesan",
         form_sending: "Mengirim...",
-        form_success: "Pesan berhasil dikirim! Gua bakal balas secepatnya.",
+        form_success: "Pesan berhasil dikirim! Saya bakal balas secepatnya.",
         form_error: "Gagal kirim pesan. Coba lagi atau email langsung ya.",
         footer: "Dibuat dengan kerja keras."
       },
@@ -877,35 +882,35 @@
         nav_projects: "Projects",
         nav_contact: "Contact",
         hero_greet: "Hi, I'm",
-        hero_desc: "A passionate Web Developer who loves building cool and functional websites. I enjoy coding, learning new things, and of course coffee.",
+        hero_desc: "A Hospitality Vocational School student who also loves coding. Learning to build websites while exploring the world of hospitality. Love new challenges and coffee, of course.",
         hero_btn1: "View Projects",
         hero_btn2: "Contact Me",
         about_title1: "About",
         about_title2: "Me",
-        about_desc: "I'm a developer based in Indonesia, focused on web development. With 3+ years of experience in programming, from building simple landing pages to complex web applications. I believe good code isn't just working, but also clean and maintainable.",
-        exp_title1: "Work",
-        exp_title2: "Experience",
+        about_desc: "I'm a Hospitality major student at a Vocational School with a big interest in technology, especially web development. While learning hospitality — from front office, housekeeping, to food & beverage — I also dive into coding to build websites. For me, these two worlds can go together: great service and the right technology make guest experiences more memorable.",
+        exp_title1: "Experience",
+        exp_title2: "& Education",
         now: "Present",
-        exp1_role: "Freelance Web Developer",
-        exp1_company: "Remote / Self-employed",
-        exp1_desc: "Worked on various web development projects for local and international clients, from landing pages, company profiles, to custom web applications.",
-        exp2_role: "Frontend Developer",
-        exp2_company: "PT Teknologi Nusantara",
-        exp2_desc: "Developed and maintained the company's internal web application UI using React and Tailwind CSS. Collaborated with UI/UX and backend teams.",
-        exp3_role: "Junior Web Developer",
-        exp3_company: "Startup Digital Kreatif",
-        exp3_desc: "Learned and worked on web projects from scratch, from design slicing, API integration, to production deployment.",
+        exp1_role: "Hospitality Major Student",
+        exp1_company: "Vocational School",
+        exp1_desc: "Learning hospitality: front office, housekeeping, food & beverage service, and guest communication. Active in practical activities and school services.",
+        exp2_role: "Internship (PKL)",
+        exp2_company: "Hotel / Restaurant",
+        exp2_desc: "Completed an internship in the hospitality industry. Learned firsthand how to serve guests, manage operations, and work in a professional team.",
+        exp3_role: "Learning Web Development (Self-taught)",
+        exp3_company: "Self-taught / Online Course",
+        exp3_desc: "Learning to code independently outside school hours. Focused on HTML, CSS, and JavaScript to build simple websites and personal portfolios.",
         skills_title1: "My",
         skills_title2: "Skills",
-        proj_title1: "Latest",
-        proj_title2: "Projects",
-        proj1_desc: "Online shopping app with cart, checkout, and payment gateway features.",
-        proj2_desc: "Interactive dashboard for data visualization with real-time charts.",
-        proj3_desc: "Blogging platform with markdown editor and comment system.",
-        proj4_desc: "Simple browser game built with HTML5 Canvas and vanilla JavaScript.",
+        proj_title1: "Projects",
+        proj_title2: "& Activities",
+        proj1_desc: "A personal portfolio website showcasing my profile, skills, and experience. Built from scratch with HTML, CSS, and JavaScript.",
+        proj2_desc: "A simple landing page design for a hotel with room info, facilities, and a reservation form.",
+        proj3_desc: "Internship experience in the hospitality industry. Serving guests, helping with operations, and learning to work in a professional team.",
+        proj4_desc: "Involved in various school activities and events, from guest service to being part of the event committee.",
         contact_title1: "Contact",
         contact_title2: "Me",
-        contact_desc: "Got an interesting project or want to collaborate? Don't hesitate to reach out! I'll respond as soon as possible.",
+        contact_desc: "Want to talk about hospitality, coding, or project collaboration? Don't hesitate to reach out! I'll respond as soon as possible.",
         form_name: "Name",
         form_name_ph: "Your name...",
         form_email: "Email",
