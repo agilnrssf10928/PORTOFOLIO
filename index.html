@@ -89,7 +89,6 @@
     color: var(--primary);
   }
 
-  /* Controls (theme + lang) */
   .controls {
     display: flex;
     gap: 10px;
@@ -219,11 +218,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 8rem;
     box-shadow: 0 0 60px rgba(99,102,241,0.5);
     animation: float 3s ease-in-out infinite;
     overflow: hidden;
     border: 5px solid rgba(255,255,255,0.1);
+    position: relative;
   }
 
   .avatar img {
@@ -231,6 +230,16 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    display: block;
+  }
+
+  /* Fallback: kalau foto gagal load, muncul inisial AN */
+  .avatar.no-photo::before {
+    content: 'AN';
+    font-size: 6rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 4px;
   }
 
   @keyframes float {
@@ -664,7 +673,7 @@
       </div>
       <div class="hero-image">
         <div class="avatar">
-          <img src="https://tmpfiles.org/dl/wlwYmvCqlVRv/tourl_1789129064305.jpg" alt="Foto Profil Agil Nurussofa" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+          <img src="foto.jpg" alt="Foto Profil Agil Nurussofa" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
         </div>
       </div>
     </div>
@@ -815,7 +824,6 @@
   </footer>
 
   <script>
-    /* ================= i18n Translations ================= */
     const translations = {
       id: {
         nav_home: "Home",
@@ -941,7 +949,6 @@
 
     applyLanguage(currentLang);
 
-    /* ================= Theme Toggle ================= */
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark';
 
@@ -963,7 +970,6 @@
 
     applyTheme(savedTheme);
 
-    /* ================= Smooth Scroll ================= */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -974,7 +980,6 @@
       });
     });
 
-    /* ================= Fade In On Scroll ================= */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -991,7 +996,6 @@
       observer.observe(section);
     });
 
-    /* ================= Navbar Shadow ================= */
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       if (window.scrollY > 50) {
@@ -1001,7 +1005,6 @@
       }
     });
 
-    /* ================= Contact Form (FormSubmit) ================= */
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
