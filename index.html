@@ -12,7 +12,6 @@
     font-family: 'Segoe UI', Tahoma, sans-serif;
   }
 
-  /* ===== THEME: BLUE (default) ===== */
   :root {
     --primary: #3b82f6;
     --secondary: #06b6d4;
@@ -27,7 +26,6 @@
     --shadow-hover: rgba(59,130,246,0.4);
   }
 
-  /* ===== THEME: DARK (hitam elegan) ===== */
   body.dark-theme {
     --primary: #a78bfa;
     --secondary: #f472b6;
@@ -41,7 +39,6 @@
     --shadow-hover: rgba(167,139,250,0.4);
   }
 
-  /* ===== THEME: LIGHT (putih bersih) ===== */
   body.light-theme {
     --primary: #2563eb;
     --secondary: #7c3aed;
@@ -282,7 +279,6 @@
     font-size: 1.1rem;
   }
 
-  /* Timeline */
   .timeline {
     position: relative;
     max-width: 900px;
@@ -381,7 +377,6 @@
     font-size: 0.9rem;
   }
 
-  /* Skills */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -418,7 +413,6 @@
     margin-top: 6px;
   }
 
-  /* Projects */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -485,144 +479,6 @@
     font-weight: 500;
   }
 
-  /* ===== GALERI FOTO ===== */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .gallery-item {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    border-radius: 15px;
-    overflow: hidden;
-    cursor: pointer;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    transition: all 0.4s ease;
-  }
-
-  .gallery-item:hover {
-    transform: scale(1.03);
-    border-color: var(--primary);
-    box-shadow: 0 15px 40px var(--shadow-hover);
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.1);
-  }
-
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-item:hover .gallery-overlay {
-    opacity: 1;
-  }
-
-  .gallery-overlay h4 {
-    color: white;
-    font-size: 1.05rem;
-    margin-bottom: 4px;
-  }
-
-  .gallery-overlay p {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.8rem;
-  }
-
-  /* Placeholder kalau gambar gak ada */
-  .gallery-item.placeholder {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .gallery-item.placeholder::before {
-    content: attr(data-label);
-  }
-
-  .gallery-item.placeholder img {
-    display: none;
-  }
-
-  /* Lightbox */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 40px;
-    cursor: zoom-out;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .lightbox.active {
-    display: flex;
-    opacity: 1;
-  }
-
-  .lightbox img {
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 15px;
-    box-shadow: 0 0 60px rgba(255,255,255,0.2);
-    animation: zoomIn 0.3s ease;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    line-height: 1;
-    padding: 10px 20px;
-    transition: transform 0.3s;
-  }
-
-  .lightbox-close:hover {
-    transform: scale(1.2);
-  }
-
-  @keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-
-  /* Contact Form */
   .contact-content {
     max-width: 650px;
     margin: 0 auto;
@@ -790,21 +646,6 @@
       left: 11px;
       right: auto;
     }
-
-    .gallery-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-    }
-
-    .lightbox {
-      padding: 20px;
-    }
-
-    .lightbox-close {
-      top: 10px;
-      right: 15px;
-      font-size: 2rem;
-    }
   }
 </style>
 </head>
@@ -820,7 +661,6 @@
         <li><a href="#experience" data-i18n="nav_exp">Pengalaman</a></li>
         <li><a href="#skills" data-i18n="nav_skills">Skill</a></li>
         <li><a href="#projects" data-i18n="nav_projects">Project</a></li>
-        <li><a href="#gallery" data-i18n="nav_gallery">Galeri</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Kontak</a></li>
       </ul>
       <div class="controls">
@@ -868,7 +708,7 @@
           <div class="timeline-date">2026 — <span data-i18n="now">Sekarang</span></div>
           <h3 data-i18n="exp1_role">Siswa SMK Jurusan Perhotelan</h3>
           <h4 data-i18n="exp1_company">SMK Pariwisata Cikarang Selatan</h4>
-          <p data-i18n="exp1_desc">Belajar ilmu hospitality: front office, housekeeping, food & beverage service, serta komunikasi dengan tamu. Aktif di kegiatan praktik dan pelayanan sekolah.</p>
+          <p data-i18n="exp1_desc">Belajar ilmu perhotelan seperti: front office, housekeeping, food & beverage service, serta komunikasi dengan tamu. Aktif di kegiatan praktik dan pelayanan sekolah.</p>
         </div>
       </div>
 
@@ -966,61 +806,6 @@
     </div>
   </section>
 
-  <!-- ===== GALERI FOTO KEGIATAN ===== -->
-  <section id="gallery">
-    <h2 class="section-title"><span data-i18n="gallery_title1">Galeri</span> <span data-i18n="gallery_title2">Kegiatan</span></h2>
-    <div class="gallery-grid" id="galleryGrid">
-      <!-- Ganti src dengan nama file foto kamu. Taruh di folder yang sama dengan index.html -->
-      <div class="gallery-item" data-label="Kegiatan 1">
-        <img src="galeri1.jpg" alt="Kegiatan 1" onerror="this.parentElement.classList.add('placeholder')">
-        <div class="gallery-overlay">
-          <h4 data-i18n="gallery1_title">Kegiatan PKL</h4>
-          <p data-i18n="gallery1_desc">Praktik di industri perhotelan</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-label="Kegiatan 2">
-        <img src="galeri2.jpg" alt="Kegiatan 2" onerror="this.parentElement.classList.add('placeholder')">
-        <div class="gallery-overlay">
-          <h4 data-i18n="gallery2_title">Event Sekolah</h4>
-          <p data-i18n="gallery2_desc">Panitia acara sekolah</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-label="Kegiatan 3">
-        <img src="galeri3.jpg" alt="Kegiatan 3" onerror="this.parentElement.classList.add('placeholder')">
-        <div class="gallery-overlay">
-          <h4 data-i18n="gallery3_title">Pelayanan Tamu</h4>
-          <p data-i18n="gallery3_desc">Praktik front office</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-label="Kegiatan 4">
-        <img src="galeri4.jpg" alt="Kegiatan 4" onerror="this.parentElement.classList.add('placeholder')">
-        <div class="gallery-overlay">
-          <h4 data-i18n="gallery4_title">Lomba / Kompetisi</h4>
-          <p data-i18n="gallery4_desc">Ikut lomba tingkat sekolah</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-label="Kegiatan 5">
-        <img src="galeri5.jpg" alt="Kegiatan 5" onerror="this.parentElement.classList.add('placeholder')">
-        <div class="gallery-overlay">
-          <h4 data-i18n="gallery5_title">Kegiatan Coding</h4>
-          <p data-i18n="gallery5_desc">Belajar web development</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-label="Kegiatan 6">
-        <img src="galeri6.jpg" alt="Kegiatan 6" onerror="this.parentElement.classList.add('placeholder')">
-        <div class="gallery-overlay">
-          <h4 data-i18n="gallery6_title">Kegiatan Lainnya</h4>
-          <p data-i18n="gallery6_desc">Momen berharga lainnya</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
   <section id="contact">
     <h2 class="section-title"><span data-i18n="contact_title1">Hubungi</span> <span data-i18n="contact_title2">Saya</span></h2>
@@ -1059,12 +844,6 @@
     <p>&copy; 2025 Agil Nurussofa. <span data-i18n="footer">Dibuat dengan kerja keras.</span></p>
   </footer>
 
-  <!-- ===== LIGHTBOX ===== -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <img src="" alt="Preview" id="lightboxImg">
-  </div>
-
   <script>
     const translations = {
       id: {
@@ -1073,7 +852,6 @@
         nav_exp: "Pengalaman",
         nav_skills: "Skill",
         nav_projects: "Project",
-        nav_gallery: "Galeri",
         nav_contact: "Kontak",
         hero_greet: "Hai, saya",
         hero_desc: "Siswa SMK Jurusan Perhotelan yang juga suka ngoding. Lagi belajar bikin website sambil mendalami dunia hospitality. Suka tantangan baru dan ngopi tentunya.",
@@ -1105,20 +883,6 @@
         proj2_desc: "Design landing page sederhana.",
         proj3_desc: "Pengalaman Casual/Magang di industri perhotelan. Melayani tamu, membantu operasional, dan belajar kerja dalam tim profesional.",
         proj4_desc: "Terlibat dalam berbagai kegiatan dan event sekolah, mulai dari pelayanan tamu sampai jadi panitia acara.",
-        gallery_title1: "Galeri",
-        gallery_title2: "Kegiatan",
-        gallery1_title: "Kegiatan PKL",
-        gallery1_desc: "Praktik di industri perhotelan",
-        gallery2_title: "Event Sekolah",
-        gallery2_desc: "Panitia acara sekolah",
-        gallery3_title: "Pelayanan Tamu",
-        gallery3_desc: "Praktik front office",
-        gallery4_title: "Lomba / Kompetisi",
-        gallery4_desc: "Ikut lomba tingkat sekolah",
-        gallery5_title: "Kegiatan Coding",
-        gallery5_desc: "Belajar web development",
-        gallery6_title: "Kegiatan Lainnya",
-        gallery6_desc: "Momen berharga lainnya",
         contact_title1: "Hubungi",
         contact_title2: "Saya",
         contact_desc: "Mau ngobrol soal perhotelan, coding, atau kolaborasi project? Jangan ragu buat chat saya ya! Saya bakal respon secepatnya.",
@@ -1140,7 +904,6 @@
         nav_exp: "Experience",
         nav_skills: "Skills",
         nav_projects: "Projects",
-        nav_gallery: "Gallery",
         nav_contact: "Contact",
         hero_greet: "Hi, I'm",
         hero_desc: "A Hospitality Vocational School student who also loves coding. Learning to build websites while exploring the world of hospitality. Love new challenges and coffee, of course.",
@@ -1161,6 +924,9 @@
         exp3_role: "Learning Web Development (Self-taught)",
         exp3_company: "Self-taught / Online Course",
         exp3_desc: "Learning to code independently outside school hours. Focused on HTML, CSS, JavaScript, and Python to build simple websites and personal portfolios.",
+        exp4_role: "Learning About Hospitality",
+        exp4_company: "SMK Pariwisata Cikarang Selatan",
+        exp4_desc: "Started learning in depth about service, work ethics, and hospitality industry operations.",
         skills_title1: "My",
         skills_title2: "Skills",
         proj_title1: "Projects",
@@ -1169,20 +935,6 @@
         proj2_desc: "A simple landing page design.",
         proj3_desc: "Casual/Internship experience in the hospitality industry. Serving guests, helping with operations, and learning to work in a professional team.",
         proj4_desc: "Involved in various school activities and events, from guest service to being part of the event committee.",
-        gallery_title1: "Activity",
-        gallery_title2: "Gallery",
-        gallery1_title: "Internship Activity",
-        gallery1_desc: "Practice in the hospitality industry",
-        gallery2_title: "School Event",
-        gallery2_desc: "School event committee",
-        gallery3_title: "Guest Service",
-        gallery3_desc: "Front office practice",
-        gallery4_title: "Competition",
-        gallery4_desc: "Joined school-level competition",
-        gallery5_title: "Coding Activity",
-        gallery5_desc: "Learning web development",
-        gallery6_title: "Other Activities",
-        gallery6_desc: "Other precious moments",
         contact_title1: "Contact",
         contact_title2: "Me",
         contact_desc: "Want to talk about hospitality, coding, or project collaboration? Don't hesitate to reach out! I'll respond as soon as possible.",
@@ -1224,7 +976,6 @@
 
     applyLanguage(currentLang);
 
-    /* ===== THEME CYCLE: Blue → Dark → Light ===== */
     const themeToggle = document.getElementById('themeToggle');
     const themes = ['blue-theme', 'dark-theme', 'light-theme'];
     const themeLabels = { 'blue-theme': 'Blue', 'dark-theme': 'Dark', 'light-theme': 'Light' };
@@ -1245,7 +996,6 @@
     const savedTheme = localStorage.getItem('theme') || 'blue-theme';
     applyTheme(savedTheme);
 
-    /* ===== Smooth Scroll ===== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1256,7 +1006,6 @@
       });
     });
 
-    /* ===== Fade In On Scroll ===== */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1273,7 +1022,6 @@
       observer.observe(section);
     });
 
-    /* ===== Navbar Shadow ===== */
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       if (window.scrollY > 50) {
@@ -1283,7 +1031,6 @@
       }
     });
 
-    /* ===== Contact Form ===== */
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -1320,35 +1067,6 @@
         submitBtn.disabled = false;
         submitBtn.textContent = t.form_submit;
       }
-    });
-
-    /* ===== Lightbox Galeri ===== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', () => {
-        if (item.classList.contains('placeholder')) return;
-        const img = item.querySelector('img');
-        if (img && img.src) {
-          lightboxImg.src = img.src;
-          lightbox.classList.add('active');
-        }
-      });
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      lightboxImg.src = '';
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
     });
   </script>
 
