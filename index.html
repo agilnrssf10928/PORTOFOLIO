@@ -59,7 +59,7 @@
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
@@ -98,29 +98,23 @@
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     color: var(--light);
-    width: 42px;
+    min-width: 42px;
     height: 42px;
-    border-radius: 50%;
+    padding: 0 14px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     transition: all 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
   }
 
   .icon-btn:hover {
     border-color: var(--primary);
     transform: translateY(-2px);
-  }
-
-  .lang-btn {
-    width: auto;
-    padding: 0 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    gap: 6px;
   }
 
   /* Hero */
@@ -233,7 +227,6 @@
     display: block;
   }
 
-  /* Fallback: kalau foto gagal load, muncul inisial AN */
   .avatar.no-photo::before {
     content: 'AN';
     font-size: 6rem;
@@ -397,11 +390,6 @@
     background: rgba(99,102,241,0.1);
   }
 
-  .skill-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-
   .skill-card h3 {
     font-size: 1rem;
     font-weight: 600;
@@ -436,7 +424,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 20px;
   }
 
   .project-info {
@@ -548,25 +541,26 @@
     border: 1px solid rgba(239,68,68,0.3);
   }
 
+  /* Social Links (Text Version) */
   .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
   }
 
   .social-link {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    padding: 12px 24px;
+    border-radius: 50px;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     color: var(--light);
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
+    font-weight: 600;
     transition: all 0.3s;
   }
 
@@ -574,6 +568,7 @@
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     transform: translateY(-5px);
     color: white;
+    border-color: transparent;
   }
 
   /* Footer */
@@ -641,7 +636,7 @@
 
   <!-- Navbar -->
   <nav>
-    <div class="logo">&lt;Agil Nurussofa /&gt;</div>
+    <div class="logo">Agil Nurussofa</div>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#home" data-i18n="nav_home">Home</a></li>
@@ -652,9 +647,9 @@
         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
       <div class="controls">
-        <button class="icon-btn" id="themeToggle" title="Toggle theme">🌙</button>
-        <button class="icon-btn lang-btn" id="langToggle" title="Ganti bahasa">
-          <span id="langLabel">🇮🇩 ID</span>
+        <button class="icon-btn" id="themeToggle" title="Toggle theme">Dark</button>
+        <button class="icon-btn" id="langToggle" title="Ganti bahasa">
+          <span id="langLabel">ID</span>
         </button>
       </div>
     </div>
@@ -664,8 +659,8 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-text">
-        <h1><span data-i18n="hero_greet">Hai, gua</span> <span class="gradient-text">Agil Nurussofa</span> 👋</h1>
-        <p data-i18n="hero_desc">Seorang Web Developer yang passionate bikin website keren dan fungsional. Suka ngoding, belajar hal baru, dan ngopi tentunya ☕</p>
+        <h1><span data-i18n="hero_greet">Hai, gua</span> <span class="gradient-text">Agil Nurussofa</span></h1>
+        <p data-i18n="hero_desc">Seorang Web Developer yang passionate bikin website keren dan fungsional. Suka ngoding, belajar hal baru, dan ngopi tentunya.</p>
         <div class="btn-group">
           <a href="#projects" class="btn btn-primary" data-i18n="hero_btn1">Lihat Project</a>
           <a href="#contact" class="btn btn-outline" data-i18n="hero_btn2">Hubungi Gua</a>
@@ -724,14 +719,14 @@
   <section id="skills">
     <h2 class="section-title"><span data-i18n="skills_title1">Skill</span> <span data-i18n="skills_title2">Saya</span></h2>
     <div class="skills-grid">
-      <div class="skill-card"><div class="skill-icon">⚛️</div><h3>React</h3></div>
-      <div class="skill-card"><div class="skill-icon">🟨</div><h3>JavaScript</h3></div>
-      <div class="skill-card"><div class="skill-icon">🎨</div><h3>CSS / Tailwind</h3></div>
-      <div class="skill-card"><div class="skill-icon">🟢</div><h3>Node.js</h3></div>
-      <div class="skill-card"><div class="skill-icon">🐘</div><h3>PHP / Laravel</h3></div>
-      <div class="skill-card"><div class="skill-icon">🗄️</div><h3>MySQL</h3></div>
-      <div class="skill-card"><div class="skill-icon">🐙</div><h3>Git</h3></div>
-      <div class="skill-card"><div class="skill-icon">📱</div><h3>Responsive Design</h3></div>
+      <div class="skill-card"><h3>React</h3></div>
+      <div class="skill-card"><h3>JavaScript</h3></div>
+      <div class="skill-card"><h3>CSS / Tailwind</h3></div>
+      <div class="skill-card"><h3>Node.js</h3></div>
+      <div class="skill-card"><h3>PHP / Laravel</h3></div>
+      <div class="skill-card"><h3>MySQL</h3></div>
+      <div class="skill-card"><h3>Git</h3></div>
+      <div class="skill-card"><h3>Responsive Design</h3></div>
     </div>
   </section>
 
@@ -740,7 +735,7 @@
     <h2 class="section-title"><span data-i18n="proj_title1">Project</span> <span data-i18n="proj_title2">Terbaru</span></h2>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-image">🛒</div>
+        <div class="project-image">E-Commerce</div>
         <div class="project-info">
           <h3>E-Commerce App</h3>
           <p data-i18n="proj1_desc">Aplikasi toko online dengan fitur cart, checkout, dan payment gateway.</p>
@@ -751,7 +746,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-image">📊</div>
+        <div class="project-image">Dashboard</div>
         <div class="project-info">
           <h3>Dashboard Analytics</h3>
           <p data-i18n="proj2_desc">Dashboard interaktif untuk visualisasi data dengan chart real-time.</p>
@@ -762,7 +757,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-image">📝</div>
+        <div class="project-image">Blog</div>
         <div class="project-info">
           <h3>Blog Platform</h3>
           <p data-i18n="proj3_desc">Platform blogging dengan markdown editor dan sistem komentar.</p>
@@ -773,7 +768,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-image">🎮</div>
+        <div class="project-image">Mini Game</div>
         <div class="project-info">
           <h3>Mini Game</h3>
           <p data-i18n="proj4_desc">Game browser sederhana dengan HTML5 Canvas dan JavaScript vanilla.</p>
@@ -789,7 +784,7 @@
   <section id="contact">
     <h2 class="section-title"><span data-i18n="contact_title1">Hubungi</span> <span data-i18n="contact_title2">Saya</span></h2>
     <div class="contact-content">
-      <p data-i18n="contact_desc">Punya project menarik atau mau kolaborasi? Jangan ragu buat reach out ya! Gua bakal respon secepatnya 🚀</p>
+      <p data-i18n="contact_desc">Punya project menarik atau mau kolaborasi? Jangan ragu buat reach out ya! Gua bakal respon secepatnya.</p>
 
       <form class="contact-form" id="contactForm">
         <div class="form-group">
@@ -804,23 +799,23 @@
           <label for="message" data-i18n="form_message">Pesan</label>
           <textarea id="message" name="message" required data-i18n-ph="form_message_ph" placeholder="Tulis pesan kamu di sini..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="form_submit">Kirim Pesan 🚀</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="form_submit">Kirim Pesan</button>
         <div class="form-status" id="formStatus"></div>
       </form>
 
       <div class="social-links">
-        <a href="mailto:agilnurus2008@gmail.com" class="social-link" title="Email">📧</a>
-        <a href="https://github.com/agilnrssf" class="social-link" title="GitHub">🐙</a>
-        <a href="https://linkedin.com/in/username" class="social-link" title="LinkedIn">💼</a>
-        <a href="https://instagram.com/agil_ajaa4" class="social-link" title="Instagram">📷</a>
-        <a href="https://wa.me/6281574811853" class="social-link" title="WhatsApp">💬</a>
+        <a href="mailto:agilnurus2008@gmail.com" class="social-link">Gmail</a>
+        <a href="https://github.com/agilnrssf" class="social-link">GitHub</a>
+        <a href="https://linkedin.com/in/username" class="social-link">LinkedIn</a>
+        <a href="https://instagram.com/agil_ajaa4" class="social-link">Instagram</a>
+        <a href="https://wa.me/6281574811853" class="social-link">WhatsApp</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Agil. <span data-i18n="footer">Dibuat dengan ❤️ dan ☕</span></p>
+    <p>&copy; 2025 Agil Nurussofa. <span data-i18n="footer">Dibuat dengan kerja keras.</span></p>
   </footer>
 
   <script>
@@ -833,7 +828,7 @@
         nav_projects: "Project",
         nav_contact: "Kontak",
         hero_greet: "Hai, gua",
-        hero_desc: "Seorang Web Developer yang passionate bikin website keren dan fungsional. Suka ngoding, belajar hal baru, dan ngopi tentunya ☕",
+        hero_desc: "Seorang Web Developer yang passionate bikin website keren dan fungsional. Suka ngoding, belajar hal baru, dan ngopi tentunya.",
         hero_btn1: "Lihat Project",
         hero_btn2: "Hubungi Gua",
         about_title1: "Tentang",
@@ -861,18 +856,18 @@
         proj4_desc: "Game browser sederhana dengan HTML5 Canvas dan JavaScript vanilla.",
         contact_title1: "Hubungi",
         contact_title2: "Saya",
-        contact_desc: "Punya project menarik atau mau kolaborasi? Jangan ragu buat reach out ya! Gua bakal respon secepatnya 🚀",
+        contact_desc: "Punya project menarik atau mau kolaborasi? Jangan ragu buat reach out ya! Gua bakal respon secepatnya.",
         form_name: "Nama",
         form_name_ph: "Nama kamu...",
         form_email: "Email",
         form_email_ph: "email@contoh.com",
         form_message: "Pesan",
         form_message_ph: "Tulis pesan kamu di sini...",
-        form_submit: "Kirim Pesan 🚀",
+        form_submit: "Kirim Pesan",
         form_sending: "Mengirim...",
-        form_success: "✅ Pesan berhasil dikirim! Gua bakal balas secepatnya.",
-        form_error: "❌ Gagal kirim pesan. Coba lagi atau email langsung ya.",
-        footer: "Dibuat dengan ❤️ dan ☕"
+        form_success: "Pesan berhasil dikirim! Gua bakal balas secepatnya.",
+        form_error: "Gagal kirim pesan. Coba lagi atau email langsung ya.",
+        footer: "Dibuat dengan kerja keras."
       },
       en: {
         nav_home: "Home",
@@ -882,7 +877,7 @@
         nav_projects: "Projects",
         nav_contact: "Contact",
         hero_greet: "Hi, I'm",
-        hero_desc: "A passionate Web Developer who loves building cool and functional websites. I enjoy coding, learning new things, and of course coffee ☕",
+        hero_desc: "A passionate Web Developer who loves building cool and functional websites. I enjoy coding, learning new things, and of course coffee.",
         hero_btn1: "View Projects",
         hero_btn2: "Contact Me",
         about_title1: "About",
@@ -910,18 +905,18 @@
         proj4_desc: "Simple browser game built with HTML5 Canvas and vanilla JavaScript.",
         contact_title1: "Contact",
         contact_title2: "Me",
-        contact_desc: "Got an interesting project or want to collaborate? Don't hesitate to reach out! I'll respond as soon as possible 🚀",
+        contact_desc: "Got an interesting project or want to collaborate? Don't hesitate to reach out! I'll respond as soon as possible.",
         form_name: "Name",
         form_name_ph: "Your name...",
         form_email: "Email",
         form_email_ph: "email@example.com",
         form_message: "Message",
         form_message_ph: "Write your message here...",
-        form_submit: "Send Message 🚀",
+        form_submit: "Send Message",
         form_sending: "Sending...",
-        form_success: "✅ Message sent successfully! I'll reply as soon as possible.",
-        form_error: "❌ Failed to send message. Please try again or email me directly.",
-        footer: "Made with ❤️ and ☕"
+        form_success: "Message sent successfully! I'll reply as soon as possible.",
+        form_error: "Failed to send message. Please try again or email me directly.",
+        footer: "Made with hard work."
       }
     };
 
@@ -937,7 +932,7 @@
         const key = el.getAttribute('data-i18n-ph');
         if (t[key]) el.placeholder = t[key];
       });
-      document.getElementById('langLabel').textContent = lang === 'id' ? '🇮🇩 ID' : '🇬🇧 EN';
+      document.getElementById('langLabel').textContent = lang === 'id' ? 'ID' : 'EN';
       document.documentElement.lang = lang;
       localStorage.setItem('lang', lang);
       currentLang = lang;
@@ -955,10 +950,10 @@
     function applyTheme(theme) {
       if (theme === 'light') {
         document.body.classList.add('light-mode');
-        themeToggle.textContent = '☀️';
+        themeToggle.textContent = 'Light';
       } else {
         document.body.classList.remove('light-mode');
-        themeToggle.textContent = '🌙';
+        themeToggle.textContent = 'Dark';
       }
       localStorage.setItem('theme', theme);
     }
