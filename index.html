@@ -921,12 +921,10 @@
   </footer>
 
   <script>
-   /* ================= VISITOR COUNTER (CountAPI.xyz) ================= */
-// Format: https://api.countapi.xyz/hit/NAMESPACE/KEY
-// Ganti 'agil-portofolio-2025' dengan nama unik (JANGAN ganti setelah set!)
-const COUNTER_NAMESPACE = 'agil-nurussofa-portofolio-2025';
-const COUNTER_KEY = 'visits';
-const SESSION_FLAG = 'hasVisited_' + COUNTER_NAMESPACE;
+  /* ================= VISITOR COUNTER (JSONBin.io) ================= */
+const BIN_ID = '6aa4c138ac6210605ac326ed';
+const API_KEY = '$2a$10$bOKvfa8ndFjHR8AnZ9pTWuWG/KrHuOjI7zuBna8XzdhS80d2Z3ZOO';
+const SESSION_FLAG = 'hasVisited_jsonbin_v1';
 
 async function initVisitorCounter() {
   const countEl = document.getElementById('visitorCount');
@@ -934,22 +932,41 @@ async function initVisitorCounter() {
 
   try {
     const alreadyVisited = sessionStorage.getItem(SESSION_FLAG);
-    // Kalau belum visit: hit (increment). Kalau udah: get (cuma baca)
-    const action = alreadyVisited ? 'get' : 'hit';
-    const response = await fetch(
-      `https://api.countapi.xyz/${action}/${COUNTER_NAMESPACE}/${COUNTER_KEY}`
-    );
-    const data = await response.json();
     
-    if (data && typeof data.value === 'number') {
-      animateCount(countEl, data.value);
+    // 1. Ambil angka sekarang dari JSONBin
+    const getResp = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': API_KEY }
+    });
+    
+    if (!getResp.ok) throw new Error('Gagal ambil data dari JSONBin');
+    
+    const getData = await getResp.json();
+    let current = (getData.record && getData.record.visits) ? getData.record.visits : 0;
+    
+    // 2. Kalau user belum visit session ini, increment + simpan
+    if (!alreadyVisited) {
+      current = current + 1;
+      
+      const putResp = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Master-Key': API_KEY
+        },
+        body: JSON.stringify({ visits: current })
+      });
+      
+      if (!putResp.ok) throw new Error('Gagal update data ke JSONBin');
+      
       sessionStorage.setItem(SESSION_FLAG, 'true');
-    } else {
-      countEl.textContent = '1';
     }
+    
+    // 3. Tampilin dengan animasi
+    animateCount(countEl, current);
+    
   } catch (error) {
     console.error('Counter error:', error);
-    // Fallback: localStorage
+    // Fallback: pakai localStorage kalau JSONBin error
     const fallback = parseInt(localStorage.getItem('fallbackVisits') || '0', 10);
     const newFallback = fallback + 1;
     localStorage.setItem('fallbackVisits', newFallback);
