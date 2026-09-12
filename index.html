@@ -921,43 +921,41 @@
   </footer>
 
   <script>
-    /* ================= VISITOR COUNTER ================= */
-    // Pakai CounterAPI — gratis, gak perlu daftar
-    // Ganti 'agil-nurussofa-portofolio' dengan nama unik apapun (sekali set, ganti berarti reset)
-    const COUNTER_NAMESPACE = 'agil-nurussofa-portofolio';
-    const COUNTER_KEY = 'visits';
-    const SESSION_FLAG = 'hasVisited_' + COUNTER_NAMESPACE;
+   /* ================= VISITOR COUNTER (CountAPI.xyz) ================= */
+// Format: https://api.countapi.xyz/hit/NAMESPACE/KEY
+// Ganti 'agil-portofolio-2025' dengan nama unik (JANGAN ganti setelah set!)
+const COUNTER_NAMESPACE = 'agil-nurussofa-portofolio-2025';
+const COUNTER_KEY = 'visits';
+const SESSION_FLAG = 'hasVisited_' + COUNTER_NAMESPACE;
 
-    async function initVisitorCounter() {
-      const countEl = document.getElementById('visitorCount');
-      if (!countEl) return;
+async function initVisitorCounter() {
+  const countEl = document.getElementById('visitorCount');
+  if (!countEl) return;
 
-      try {
-        // Cek apakah user udah pernah buka di session ini
-        const alreadyVisited = sessionStorage.getItem(SESSION_FLAG);
-
-        // Kalau belum visit, increment. Kalau udah, cuma get (gak nambah)
-        const action = alreadyVisited ? 'get' : 'up';
-
-        const response = await fetch(
-          `https://api.counterapi.dev/v1/${COUNTER_NAMESPACE}/${COUNTER_KEY}/${action}`
-        );
-        const data = await response.json();
-
-        if (data && typeof data.count === 'number') {
-          animateCount(countEl, data.count);
-          sessionStorage.setItem(SESSION_FLAG, 'true');
-        } else {
-          countEl.textContent = '1';
-        }
-      } catch (error) {
-        // Kalau API error, tampilin angka fallback dari localStorage
-        const fallback = parseInt(localStorage.getItem('fallbackVisits') || '0', 10);
-        const newFallback = fallback + 1;
-        localStorage.setItem('fallbackVisits', newFallback);
-        countEl.textContent = newFallback;
-      }
+  try {
+    const alreadyVisited = sessionStorage.getItem(SESSION_FLAG);
+    // Kalau belum visit: hit (increment). Kalau udah: get (cuma baca)
+    const action = alreadyVisited ? 'get' : 'hit';
+    const response = await fetch(
+      `https://api.countapi.xyz/${action}/${COUNTER_NAMESPACE}/${COUNTER_KEY}`
+    );
+    const data = await response.json();
+    
+    if (data && typeof data.value === 'number') {
+      animateCount(countEl, data.value);
+      sessionStorage.setItem(SESSION_FLAG, 'true');
+    } else {
+      countEl.textContent = '1';
     }
+  } catch (error) {
+    console.error('Counter error:', error);
+    // Fallback: localStorage
+    const fallback = parseInt(localStorage.getItem('fallbackVisits') || '0', 10);
+    const newFallback = fallback + 1;
+    localStorage.setItem('fallbackVisits', newFallback);
+    countEl.textContent = newFallback;
+  }
+}
 
     // Animasi counter dari 0 ke target
     function animateCount(el, target) {
