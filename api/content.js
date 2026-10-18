@@ -34,9 +34,13 @@ async function kvRequest(commandArray) {
 }
 
 module.exports = async function handler(request, response) {
+  // TAMBAHKAN BARIS INI UNTUK TES
+  console.log("=== DEBUG START ===", process.env.KV_REST_API_URL ? "URL ADA" : "URL KOSONG", process.env.KV_REST_API_TOKEN ? "TOKEN ADA" : "TOKEN KOSONG");
+
   if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
     return response.status(500).json({ error: 'KV belum dikonfigurasi di Vercel.' });
   }
+  // ... (biarkan sisa kodenya sama persis seperti yang kamu kirim tadi)
 
   try {
     if (request.method === 'GET') {
