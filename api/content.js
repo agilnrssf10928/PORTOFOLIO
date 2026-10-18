@@ -13,13 +13,23 @@ const defaults = {
   }
 };
 
-async function kvRequest(method, path, body) {
-  const response = await fetch(`${process.env.KV_REST_API_URL}${path}`, {
-    method,
-    headers: { Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`, 'Content-Type': 'application/json' },
-    body: body === undefined ? undefined : JSON.stringify(body)
+// Fungsi Request yang sudah diperbaiki untuk Upstash Redis
+async function kvRequest(commandArray) {
+  // Mengirim perintah sebagai array JSON ke root endpoint (/)
+  const response = await fetch(`${process.env.KV_REST_API_URL}`, {
+    method: 'POST',
+    headers: { 
+      Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`, 
+      'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(commandArray)
   });
-  if (!response.ok) throw new Error('KV request failed');
+  
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error('KV API Error:', errorText);
+    throw new Error('KV request failed');
+  }
   return response.json();
 }
 
@@ -30,11 +40,23 @@ module.exports = async function handler(request, response) {
 
   try {
     if (request.method === 'GET') {
-      const result = await kvRequest('GET', '/get/portfolio_content');
-      return response.status(200).json(result.result || defaults);
-    }
+      // Perintah GET
+      const result = await kvRequest(['GET', 'portfolio_content']);
+      
+      // Cek apakah data null (belum pernah disimpan)
+      if (!result.result) {
+        return response.status(200).json(defaults);
+      }
+      
+      // Parse string JSON menjadi object
+      const parsedData = typeof result.result === 'string' ? JSON.parse(result.result) : result.result;
+      return response.status(200).json(parsedData);
+
+    } 
+    
     if (request.method === 'PUT') {
       if (!isAuthenticated(request)) return response.status(401).json({ error: 'Silakan login.' });
+      
       const incoming = typeof request.body === 'string' ? JSON.parse(request.body) : request.body;
       const content = {
         name: String(incoming.name || defaults.name).slice(0, 100),
@@ -42,11 +64,16 @@ module.exports = async function handler(request, response) {
         heroDesc: { id: String(incoming.heroDesc?.id || '').slice(0, 1000), en: String(incoming.heroDesc?.en || '').slice(0, 1000) },
         about: { id: String(incoming.about?.id || '').slice(0, 3000), en: String(incoming.about?.en || '').slice(0, 3000) }
       };
-      await kvRequest('POST', '/set/portfolio_content', content);
+
+      // Perintah SET (simpan data) dengan format array
+      await kvRequest(['SET', 'portfolio_content', JSON.stringify(content)]);
+      
       return response.status(200).json(content);
     }
+    
     return response.status(405).json({ error: 'Method not allowed' });
   } catch (error) {
+    console.error('Handler Error:', error);
     return response.status(500).json({ error: 'Gagal mengakses penyimpanan.' });
   }
 };
